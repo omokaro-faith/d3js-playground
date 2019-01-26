@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!-- https://medium.freecodecamp.org/learn-d3-js-in-5-minutes-c5ec29fb0725 Course Link -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learn D3 in 5 minutes</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+    <button id="btn">Show Message</button>
+    <h3>Today is beautiful</h3>
+    <ul></ul>
+    <svg width="80%">
+    </svg>
+  </body>
+  <script src='https://d3js.org/d3.v4.min.js'></script>
+  <script>
+    // For styling h3 element
+    d3.select('h3').style('color', 'darkblue');
+    d3.select('h3').style('font-size', '24px');
+
+    // For adding list to the dom
+    var fruits =['Orage', 'Lemonade', 'Apples', 'Bannanas'];
+    d3.select('ul')
+      .selectAll('li')
+      .data(fruits)
+      .enter()
+      .append('li')
+      .text((item) => {
+        return item;
+      });
+
+    d3.select('#btn')
+      .on('click', () => {
+        d3.select('body')
+          .append('h3')
+          .text('Wo la it worked')
+      });
+  </script>
+  <script src='./rect.js'></script>
+  <script src='./barchart.js'></script>
+</html>
